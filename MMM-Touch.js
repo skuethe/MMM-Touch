@@ -249,6 +249,7 @@ Module.register("MMM-Touch", {
     var command = document.querySelector("#TOUCH .command")
     command.innerHTML = ""
     command.classList.remove("fired")
+    this.sendNotification('TOUCH_ACTIVITY_NOTIFICATION')
   },
 
   touchEnded: function() {
