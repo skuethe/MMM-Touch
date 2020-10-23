@@ -273,8 +273,8 @@ Module.register("MMM-Touch", {
 
     if (this.config.onIdle && this.config.threshold.idle_ms > 0) {
       this.idleTimer = setTimeout(() => {
-        if (typeof this.config.onIdle === 'string') this.sendNotification(this.config.onIdle)
-        if (typeof this.config.onIdle === 'function') this.config.onIdle()
+        if (typeof this.config.onIdle == "string") this.sendNotification(this.config.onIdle)
+        if (typeof this.config.onIdle == "function") this.config.onIdle()
       }, this.config.threshold.idle_ms)
     }
   },
