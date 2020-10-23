@@ -152,6 +152,7 @@ Module.register("MMM-Touch", {
       } else {
         this.defineTouch()
       }
+      this.startIdleTimeout()
     }
 
     if (noti == "TOUCH_USE_DISPLAY") {
@@ -271,6 +272,10 @@ Module.register("MMM-Touch", {
     if (typeof this.config.onTouchEnd == "string") this.sendNotification(this.config.onTouchEnd)
     if (typeof this.config.onTouchEnd == "function") this.config.onTouchEnd()
 
+    this.startIdleTimeout()
+  },
+
+  startIdleTimeout: function() {
     if (this.config.onIdle && this.config.threshold.idle_ms > 0) {
       this.idleTimer = setTimeout(() => {
         if (typeof this.config.onIdle == "string") this.sendNotification(this.config.onIdle)
